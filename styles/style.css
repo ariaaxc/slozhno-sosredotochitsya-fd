@@ -203,25 +203,10 @@
 
 .section_gallery {
   display: grid;
-  grid-template-columns: auto;
+ /* grid-template-columns: auto;*/
   gap: 10px;
-<<<<<<< HEAD
   margin-block-end: 40px;
   padding-inline: var(--basic-padding);
-  padding-block: 0;
-=======
-  margin-bottom: 40px;
-  padding: 0 10px;
-}
-
-/*.gallery-title {
-  margin-bottom: 20px;
-}*/
-
-.gallery_content {
-  display: grid;
-  gap: 10px;
->>>>>>> 32e7f7b288d79a1f88d44ac1cf8dfbdd6aa1f612
 }
 
 .gallery-image {
