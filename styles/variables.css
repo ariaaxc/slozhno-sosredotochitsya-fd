@@ -1,10 +1,11 @@
 /*
   Переменные для вашего проекта
   и их переопределение под различные устройства*/
- :root {
+
+:root {
   --accent-color: #ff0070;
   --title-accent-color: #ff0070;
-  --button-color: #ff0070;
+  --button-interactive-color: #ff0070;
   --title-shadow-color: #ff0070;
   --border-transparent: rgba(255, 0, 112, 0.4);
   --title-color: #db00ff;
@@ -13,13 +14,13 @@
   --background-color: #000028;
   --background-image: url("../images/cover-image-dark.png");
   --basic-padding: 10px;
-  --adapted-text-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --adapted-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   --decor-rec: block;
 }
 
 @media (width >= 768px) {
   :root {
     --basic-padding: 20px;
-    --adapted-text-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    --adapted-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }

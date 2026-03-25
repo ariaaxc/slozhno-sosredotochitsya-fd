@@ -1,22 +1,20 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-/* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+
 .page {
   background-color: var(--background-color);
   background-image: var(--background-image);
   background-repeat: no-repeat;
   background-position: center;
-  /*чтобы обрезалось симметрично*/
   background-size: cover;
-  /*фон остается на месте при прокрутке страницы*/
   background-attachment: fixed;
 }
 
 .header {
-  position: relative; /*исходное место останется пустым при сдвижении*/
+  position: relative;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   margin-block-end: 40px;
-  block-size: 100vh; /*высота, которая равна высоте окна браузера*/
+  block-size: 100vh;
   min-block-size: 668px;
   min-inline-size: 375px;
 }
@@ -24,17 +22,9 @@
 .decorated-zone::after,
 .decorated-zone::before {
   content: "";
-  /*место не пустует, позиц. относит. html или род.*/
   position: absolute;
   inline-size: 25px;
-  block-size: 25px;/*часть уголочка вверху и снизу*/
-}
-
-.decorated-zone::before {
-  top: var(--basic-padding);
-  right: var(--basic-padding);
-  border-top: 1px solid var(--title-accent-color);
-  border-right: 1px solid var(--title-accent-color);
+  block-size: 25px;
 }
 
 .decorated-zone::after {
@@ -44,11 +34,16 @@
   border-left: 1px solid var(--title-accent-color);
 }
 
+.decorated-zone::before {
+  top: var(--basic-padding);
+  right: var(--basic-padding);
+  border-top: 1px solid var(--title-accent-color);
+  border-right: 1px solid var(--title-accent-color);
+}
 /*REC*/
 .header_decor {
   position: absolute;
   display: var(--decor-rec);
-  /*конкретный грид-эл. по горизонтали*/
   justify-self: end;
   margin-inline-end: 38px;
   margin-block-start: 10px;
@@ -59,7 +54,7 @@
   text-align: center;
 }
 
-.header_decor::before { /*REC стоит до точки*/
+.header__decor::before {
   content: "";
   position: absolute;
   top: 8px;
@@ -69,6 +64,16 @@
   background-color: var(--accent-color);
   block-size: 9px;
   inline-size: 9px;
+}
+
+.header_title {
+  margin-inline-start: 10px;
+  color: var(--title-color);
+  font-size: var(--adapted-size);
+  line-height: 83%;
+  letter-spacing: 0;
+  text-shadow: 4px 4px 0 var(--title-shadow-color);
+  max-inline-size: 355px;
 }
 
 .header__theme-menu {
@@ -96,38 +101,29 @@
   color: var(--title-accent-color);
   font-size: 18px;
   line-height: 18px;
+  letter-spacing: 0;
+  text-align: center;
   text-transform: lowercase;
-  background: transparent;
+  background: none;
   cursor: pointer;
 }
 
-.header__theme-menu-button:hover /*для мыши*/ {
+.header__theme-menu-button:hover {
   outline: 1px solid var(--border-transparent);
 }
 
-.header__theme-menu-button:focus /*клик мыши*/ {
+.header__theme-menu-button:focus {
   outline: none;
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--button-color);
+  border-bottom: 1px solid var(--button-interactive-color);
   outline: none;
 }
 
 .header__theme-menu-button_active {
   outline: 1px solid var(--title-accent-color);
-  pointer-events: none; /*делает некликабельным*/
-}
-
-/*no focus*/
-.header_title {
-  margin-inline-start: 10px;
-  color: var(--title-color);
-  font-size: var(--adapted-text-size);
-  line-height: 83%;
-  letter-spacing: 0;
-  text-shadow: 4px 4px 0 var(--title-shadow-color);
-  max-inline-size: 355px;/*!!!!!!!!!! в остальных раскладках больше*/
+  pointer-events: none;
 }
 
 .header_description {
@@ -141,6 +137,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
+  letter-spacing: 0;
   background-color: var(--accent-color);
 }
 
@@ -151,21 +148,10 @@
 }
 
 .section {
-  padding: 0 10px;
-}
-
-.section_title {
-  margin-bottom: 20px;
-  color: var(--title-accent-color);
-  font-family: 'IBM Plex Mono';
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23px;
-}
-
-.section_content {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
+  padding-inline: var(--basic-padding);
 }
 
 .card {
@@ -174,12 +160,17 @@
   gap: 10px;
 }
 
-.section_card-description {
-  color: var(--text-color);
-  font-family: 'IBM Plex Mono';
-  font-weight: 400;
+.section_title {
+  color: var(--title-accent-color);
   font-size: 18px;
-  line-height: 23px;
+  line-height: 23.4px;
+  letter-spacing: 0;
+}
+
+.section_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .multicolored_link {
@@ -199,6 +190,13 @@
   outline: 1px solid var(--text-color);
 }
 
+.section_card-description {
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 23.4px;
+  letter-spacing: 0;
+}
+
 .skinny_text {
   font-weight: 400;
 }
@@ -207,23 +205,14 @@
   display: grid;
   grid-template-columns: auto;
   gap: 10px;
-  margin-bottom: 40px;
-  padding: 0 10px;
-}
-
-.gallery-title {
-  margin-bottom: 20px;
-}
-
-.gallery_content {
-  display: grid;
-  gap: 10px;
+  margin-block-end: 40px;
+  padding-inline: var(--basic-padding);
+  padding-block: 0;
 }
 
 .gallery-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  object-fit: fill;
+  inline-size: 100%;
 }
 
 .footer {
@@ -238,7 +227,7 @@
 
 .footer_title {
   color: var(--title-color);
-  font-size: var(--adapted-text-size);
+  font-size: var(--adapted-size);
   line-height: 83%;
   letter-spacing: 0;
   text-shadow: 2px 2px var(--title-shadow-color);
@@ -277,43 +266,34 @@
   }
 
   .section_why {
-    display: grid;
     grid-template-columns: 236px 1fr;
-    gap: 20px;
-    padding-inline: 20px;
   }
 
   .section_why .section_title {
-    margin-bottom: 0;
-  }
-
-  .section_why .section_content {
-    margin-bottom: 0;
-  }
-
-  .section_what .section_title {
-    max-width: 236px;
+    block-size: 100%;
   }
 
   .section_how {
-    display: grid;
     grid-template-columns: 236px 1fr;
-    gap: 20px;
-    padding-inline: 20px;
   }
 
   .section_how .section_title {
-    margin-bottom: 0;
+    grid-column: 1;
+    grid-row: 1/-1;
+  }
+
+  .section_what .section_title {
+    max-inline-size: 236px;
   }
 
   .section_gallery {
     gap: 20px;
-    padding-inline: 20px;
   }
 
   .gallery_content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content repeat(3, auto);
     grid-template-areas:
       "one one two"
       "three four two"
@@ -325,20 +305,25 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
 
   .gallery-image:nth-child(1) {
     grid-area: one;
   }
+
   .gallery-image:nth-child(2) {
     grid-area: two;
   }
+
   .gallery-image:nth-child(3) {
     grid-area: three;
   }
+
   .gallery-image:nth-child(4) {
     grid-area: four;
   }
+
   .gallery-image:nth-child(5) {
     grid-area: five;
   }
@@ -380,12 +365,13 @@
   }
 
   .section_what .section_title {
-    max-width: 315px;
+    grid-column: 1/-1;
+    grid-row: 1;
+    max-inline-size: 315px;
   }
 
-  .section_what .section_content {
-    display: grid;
+  .section_what {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-rows: repeat(2, min-content);
   }
 }
