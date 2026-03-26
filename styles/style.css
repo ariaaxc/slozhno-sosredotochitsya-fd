@@ -239,11 +239,14 @@
 @media (width >= 768px) {
   .header {
     margin-block-end: 60px;
+    grid-template-rows: min-content 1fr min-content;
   }
 
   .header_title {
     margin-inline-start: 0;
     max-inline-size: 577px;
+    align-self: end;
+    margin-block-end: 162px;
   }
 
   .header_description {
@@ -260,6 +263,8 @@
 
   .header__theme-menu {
     margin-inline-end: 20px;
+    margin-block-start: 192px;
+    margin-block-end: 173px;
   }
 
   .main {
