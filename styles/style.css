@@ -240,6 +240,7 @@
   .header {
     margin-block-end: 60px;
     grid-template-rows: min-content 1fr min-content;
+    min-block-size: 1024px;
   }
 
   .header_title {
